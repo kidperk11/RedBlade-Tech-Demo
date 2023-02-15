@@ -81,6 +81,6 @@ public class BodyRotationScript : MonoBehaviour
                 bodyObject.eulerAngles = new Vector3(this.transform.eulerAngles.x, highEnd, this.transform.eulerAngles.z);
             }
         }
-        bodyObject.position = new Vector3(headCamera.position.x, this.transform.position.y, headCamera.position.z);
+        //bodyObject.position = new Vector3(headCamera.position.x, this.transform.position.y, headCamera.position.z);
     }
 }
