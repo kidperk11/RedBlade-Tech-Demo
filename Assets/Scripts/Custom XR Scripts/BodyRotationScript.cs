@@ -18,9 +18,7 @@ public class BodyRotationScript : MonoBehaviour
         float bodyRotation = 0;
         
         cameraRotation = headCamera.transform.eulerAngles.y;
-        Debug.Log("Raw Camera Rotation: " + cameraRotation);
         bodyRotation = bodyObject.transform.eulerAngles.y;
-        Debug.Log("Raw Body Rotation: " + bodyRotation);
 
 
         //Checks if the rotation is negative
@@ -29,7 +27,6 @@ public class BodyRotationScript : MonoBehaviour
             while(cameraRotation < 0){
                 cameraRotation += 360;
             }
-            Debug.Log("Initial Camera Rotation: " + cameraRotation);
 
         //Checks if the rotation is over 360
         }else if(cameraRotation > 360){
@@ -37,7 +34,6 @@ public class BodyRotationScript : MonoBehaviour
             while(cameraRotation > 360){
                 cameraRotation -= 360;
             }
-            Debug.Log("Initial Camera Rotation: " + cameraRotation);
         }
 
         //Checks if the rotation is negative
@@ -46,7 +42,6 @@ public class BodyRotationScript : MonoBehaviour
             while(bodyRotation < 0){
                 bodyRotation += 360;
             }
-            Debug.Log("Initial Body Rotation: " + bodyRotation);
 
         //Checks if the rotation is over 360
         }else if(bodyRotation > 360){
@@ -54,7 +49,6 @@ public class BodyRotationScript : MonoBehaviour
             while(bodyRotation > 360){
                 bodyRotation -= 360;
             }
-            Debug.Log("Initial Body Rotation: " + bodyRotation);
         }
         if(cameraRotation > bodyRotation){
             camBodyDistance = cameraRotation - bodyRotation;
@@ -73,8 +67,6 @@ public class BodyRotationScript : MonoBehaviour
         distanceToLowEnd = Mathf.Abs(Mathf.DeltaAngle(lowEnd, bodyRotation));
 
         if(Mathf.Abs(Mathf.DeltaAngle(bodyRotation, cameraRotation)) > rotationBuffer){
-            Debug.Log("Distance to points (Calling rotation): " + Mathf.DeltaAngle(bodyRotation, cameraRotation));
-            Debug.Log("Camera Rotation: " + cameraRotation + " and Body Rotation: " + bodyRotation);
             if(distanceToHighEnd > distanceToLowEnd){
                 bodyObject.eulerAngles = new Vector3(this.transform.eulerAngles.x, lowEnd, this.transform.eulerAngles.z);
             }else if(distanceToHighEnd < distanceToLowEnd){
