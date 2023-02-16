@@ -21,7 +21,7 @@ public class ChasePlayer : Action
     {
         playerPosition.SetValue(playerInstance.Value.transform.position);
         this.transform.LookAt(new Vector3(playerPosition.Value.x, 0, playerPosition.Value.z), Vector3.up);
-        // Vector3.MoveTowards(this.transform.position, playerPosition.Value, moveSpeed * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, new Vector3(playerPosition.Value.x, 0, playerPosition.Value.z), moveSpeed * Time.deltaTime);
         Debug.Log("Player Position: " + playerPosition.Value);
         Debug.Log("Enemy Position: " + skeletonBody.Value.transform.position);
         Debug.Log("Distance between the two: " + Vector3.Distance(playerPosition.Value, skeletonBody.Value.transform.position));
