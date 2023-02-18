@@ -25,11 +25,6 @@ public class ChasePlayer : Action
         Debug.Log("Player Position: " + playerPosition.Value);
         Debug.Log("Enemy Position: " + skeletonBody.Value.transform.position);
         Debug.Log("Distance between the two: " + Vector3.Distance(playerPosition.Value, skeletonBody.Value.transform.position));
-        if(Vector3.Distance(playerPosition.Value, skeletonBody.Value.transform.position) < attackRange){
-
-            return TaskStatus.Success;
-            Debug.Log("Task Has Failed");
-        }
         return TaskStatus.Running;
     }
 }
