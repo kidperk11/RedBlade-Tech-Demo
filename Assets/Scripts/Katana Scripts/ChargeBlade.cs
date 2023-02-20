@@ -7,7 +7,7 @@ public class ChargeBlade : MonoBehaviour
     public bool leftHandOnHandle;
     public bool rightHandOnHandle;
     [SerializeField] private float maxChargeTime;
-    [SerializeField] private float timerForCharge;
+    public float timerForCharge;
     public Color defaultColor;
     public Color chargedColor;
     public Vector3 colorGradient;

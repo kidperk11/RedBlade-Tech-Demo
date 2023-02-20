@@ -13,8 +13,8 @@ public class DetectionSphere : MonoBehaviour
             target = other.gameObject;
             targetDetected = true;
         }
-            Debug.Log("Collision with tag: " + other.tag);
-            Debug.Log("Object Name: " + other.gameObject);
+            //Debug.Log("Collision with tag: " + other.tag);
+            //Debug.Log("Object Name: " + other.gameObject);
     }
 
     private void OnTriggerExit(Collider other) {
