@@ -12,7 +12,7 @@ public class Block : Action
     // Start is called before the first frame update
     public override void OnStart()
     {
-        anim.ResetTrigger("block");
+        anim.SetBool("block", true);
         blockTimer = Random.Range(2, 4);
     }
 

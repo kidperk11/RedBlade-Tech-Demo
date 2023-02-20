@@ -12,6 +12,7 @@ public class ChargeBlade : MonoBehaviour
     public Color chargedColor;
     public Vector3 colorGradient;
     public Material bladeMaterial;
+    public bool attackReady;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class ChargeBlade : MonoBehaviour
             timerForCharge += Time.deltaTime;
             colorGradient = Vector3.Lerp(new Vector3(defaultColor.r, defaultColor.g, defaultColor.b), new Vector3(chargedColor.r, chargedColor.g, chargedColor.b), timerForCharge / maxChargeTime);
             bladeMaterial.color = new Color(colorGradient.x, colorGradient.y, colorGradient.z, 255);
+            attackReady = true;
         }
     }
 

@@ -29,7 +29,7 @@ public class WithinAttackRange : Conditional
             {
                 anim.ResetTrigger("walk");
                 //anim.SetTrigger("block");
-                detectionSphere.gameObject.transform.localScale = attackingDetectionScale;
+                detectionSphere.gameObject.transform.localPosition = attackingDetectionScale;
                 return TaskStatus.Success;
             }
 
@@ -37,7 +37,7 @@ public class WithinAttackRange : Conditional
         else
         {
             anim.SetTrigger("walk");
-            detectionSphere.gameObject.transform.localScale = defaultDetectionScale; 
+            detectionSphere.gameObject.transform.localPosition = defaultDetectionScale; 
         }
 
         return TaskStatus.Failure;
