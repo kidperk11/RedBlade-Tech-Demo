@@ -2,22 +2,13 @@
     "name": "REDBLADE Input Actions",
     "maps": [
         {
-            "name": "AH RightHand Locomotion",
-            "id": "0c9d13ea-2a19-4cb1-bdf5-c2db68e597c3",
+            "name": "Left Hand",
+            "id": "24bc47a3-a229-44d4-a01a-20ea0406cba4",
             "actions": [
                 {
-                    "name": "Teleport Mode Activate",
-                    "type": "Value",
-                    "id": "364f4fb4-a94e-4c12-bc20-2f3860198373",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Teleport Go",
+                    "name": "Parry",
                     "type": "Button",
-                    "id": "d3723fb1-89b0-42be-8270-137722ef834b",
+                    "id": "d54d1c96-6ee8-49fa-b3eb-0938c886447b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -27,28 +18,51 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "abf12b54-d2d2-4217-8a93-0a07053b7d39",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=1)",
+                    "id": "17b59568-2d39-4d87-81e3-d372c429a9d7",
+                    "path": "<XRController>{LeftHand}/triggerPressed",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Teleport Mode Activate",
+                    "groups": "XR Controllers",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Right Hand",
+            "id": "bf996d4d-3400-49cb-a5b3-ffa8745f5ede",
+            "actions": [
+                {
+                    "name": "Parry",
+                    "type": "Button",
+                    "id": "3c2e8dcf-c68c-4fb7-885a-7a7e73c81996",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "e60aa75c-1825-4a68-905a-56c29ac36669",
-                    "path": "<XRController>{RightHand}/Primary2DAxis",
-                    "interactions": "Press(behavior=1)",
+                    "id": "29535952-0519-4b58-b0bc-9ff4c38da29f",
+                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Teleport Go",
+                    "groups": "XR Controllers",
+                    "action": "Parry",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "XR Controllers",
+            "bindingGroup": "XR Controllers",
+            "devices": []
+        }
+    ]
 }
