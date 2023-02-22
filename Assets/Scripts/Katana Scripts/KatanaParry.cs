@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class KatanaParry : MonoBehaviour
 {
-    private PlayerInput playerInput;
     [SerializeField] private AttackHitbox attackHitbox;
     public float playerPostureDamage;
     public static bool parryInput;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -14,17 +15,29 @@ public class EnemyHealth : MonoBehaviour
     public EnemyHealth parentHealth;
     public AudioSource hurtSound;
 
+    public Transform canvasTransform;
+    public Transform camTransform;
+    public Slider healthBar;
+    public Slider PostureBar;
+
     public float currentPosture;
     [SerializeField] private float maxPosture;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        camTransform = Camera.main.transform;
+        Debug.Log("Camera Transform: " + camTransform);
+        healthBar.maxValue = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (healthBar != null)
+        {
+            healthBar.value = currentHealth;
+        }
         if (currentPosture > 0)
         {
             if(currentPosture >= maxPosture)
@@ -38,6 +51,14 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (canvasTransform != null)
+        {
+            canvasTransform.LookAt(canvasTransform.position + camTransform.forward);
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         if(shieldObjects.Count == 0)
@@ -47,8 +68,9 @@ public class EnemyHealth : MonoBehaviour
             {
                 hurtSound.Play();
             }
-            if(currentHealth <= 0)
+            if (currentHealth <= 0)
             {
+                
                 if(parentHealth != null)
                 {
                     parentHealth.shieldObjects.Remove(this.gameObject);
