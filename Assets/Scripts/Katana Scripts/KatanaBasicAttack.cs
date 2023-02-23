@@ -25,7 +25,7 @@ public class KatanaBasicAttack : MonoBehaviour
         {
             if (chargeBlade.attackReady)
             {
-                EnemyHealth healthInstance = other.gameObject.GetComponent<EnemyHealth>();
+                EnemyHealth healthInstance = other.gameObject.GetComponentInParent<EnemyHealth>();
                 healthInstance.TakeDamage(katanaDamage);
                 chargeBlade.attackReady = false;
                 chargeBlade.timerForCharge = 0;

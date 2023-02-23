@@ -18,7 +18,7 @@ public class EnemyHealth : MonoBehaviour
     public Transform canvasTransform;
     public Transform camTransform;
     public Slider healthBar;
-    public Slider PostureBar;
+    public Slider postureBar;
 
     public float currentPosture;
     [SerializeField] private float maxPosture;
@@ -28,7 +28,14 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         camTransform = Camera.main.transform;
         Debug.Log("Camera Transform: " + camTransform);
-        healthBar.maxValue = maxHealth;
+        if (healthBar != null)
+        {
+            healthBar.maxValue = maxHealth;
+        }
+        if (postureBar != null)
+        {
+            postureBar.maxValue = maxPosture;
+        }
     }
 
     // Update is called once per frame
@@ -38,11 +45,16 @@ public class EnemyHealth : MonoBehaviour
         {
             healthBar.value = currentHealth;
         }
+        if(postureBar != null)
+        {
+            postureBar.value = currentPosture;
+        }
         if (currentPosture > 0)
         {
             if(currentPosture >= maxPosture)
             {
                 criticalParryOpening = true;
+                currentPosture = 0;
             }
             else
             {
