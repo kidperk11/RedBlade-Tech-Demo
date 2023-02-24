@@ -5,7 +5,7 @@ public class Notch : XRSocketInteractor
 {
     [SerializeField, Range(0, 1)] private float releaseThreshold = 0.25f;
 
-    public Bow Bow { get; private set; }
+    public KatanaXR Katana { get; private set; }
     public PullMeasurer PullMeasurer { get; private set; }
 
     public bool CanRelease => PullMeasurer.PullAmount > releaseThreshold;
@@ -13,7 +13,7 @@ public class Notch : XRSocketInteractor
     protected override void Awake()
     {
         base.Awake();
-        Bow = GetComponentInParent<Bow>();
+        Katana = GetComponentInParent<KatanaXR>();
         PullMeasurer = GetComponentInChildren<PullMeasurer>();
     }
 
@@ -39,7 +39,7 @@ public class Notch : XRSocketInteractor
     {
         base.ProcessInteractor(updatePhase);
 
-        if (Bow.isSelected)
+        if (Katana.isSelected)
             UpdateAttach();
     }
 
@@ -53,7 +53,7 @@ public class Notch : XRSocketInteractor
     {
         // We check for the hover here too, since it factors in the recycle time of the socket
         // We also check that notch is ready, which is set once the bow is picked up
-        return QuickSelect(interactable) && CanHover(interactable) && interactable is Arrow && Bow.isSelected;
+        return QuickSelect(interactable) && CanHover(interactable) && interactable is Arrow && Katana.isSelected;
     }
 
     private bool QuickSelect(IXRSelectInteractable interactable)
