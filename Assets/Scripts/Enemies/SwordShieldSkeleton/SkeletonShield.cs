@@ -24,7 +24,7 @@ public class SkeletonShield : MonoBehaviour
     IEnumerator BlowUp()
     {
         //exploder.Explode();
-        yield return new WaitForSeconds(3);
         Destroy(this.gameObject);
+        return null;
     }
 }

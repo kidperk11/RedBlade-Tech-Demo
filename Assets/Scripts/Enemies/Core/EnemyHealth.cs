@@ -86,10 +86,10 @@ public class EnemyHealth : MonoBehaviour
                 if(parentHealth != null)
                 {
                     parentHealth.shieldObjects.Remove(this.gameObject);
-                    if(parentHealth.shieldObjects.Count <= 0)
-                    {
-                        parentHealth.criticalParryOpening = true;
-                    }
+                    //if(parentHealth.shieldObjects.Count <= 0)
+                    //{
+                    //    parentHealth.criticalParryOpening = true;
+                    //}
                 }
                 isDead = true;
             }

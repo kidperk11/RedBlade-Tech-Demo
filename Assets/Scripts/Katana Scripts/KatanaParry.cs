@@ -43,7 +43,7 @@ public class KatanaParry : MonoBehaviour
 
     public void OnParry()
     {
-        negativeClashSound.Play();
+        //negativeClashSound.Play();
         if(attackHitbox != null)
         {
             Debug.Log("Parry input triggered, checking for parry window");

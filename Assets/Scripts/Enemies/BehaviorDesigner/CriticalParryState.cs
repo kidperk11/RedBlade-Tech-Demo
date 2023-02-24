@@ -15,8 +15,8 @@ public class CriticalParryState : Conditional
 
     public override void OnStart()
     {
-        randomCritPointIndex = -1;
-        activeCritPoint = null;
+        //randomCritPointIndex = -1;
+        //activeCritPoint = null;
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class CriticalParryState : Conditional
             {
                 anim.SetBool("postureBreak", true);
                 //anim.speed = animSlowSpeed;
-                randomCritPointIndex = Random.Range(0, criticalHitPoints.Count - 1);
+                randomCritPointIndex = Random.Range(0, criticalHitPoints.Count);
                 criticalHitPoints[randomCritPointIndex].SetActive(true);
                 activeCritPoint = criticalHitPoints[randomCritPointIndex];
             }
