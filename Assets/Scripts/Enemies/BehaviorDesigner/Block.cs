@@ -14,6 +14,7 @@ public class Block : Action
     {
         anim.SetBool("block", true);
         blockTimer = Random.Range(2, 4);
+        isAttacking.Value = false;
     }
 
     // Update is called once per frame

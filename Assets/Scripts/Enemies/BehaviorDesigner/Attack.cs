@@ -15,6 +15,7 @@ public class Attack : Action
     public override void OnStart()
     {
         attackTimer = maxAttackTime;
+        isAttacking.Value = true;
     }
 
     // Update is called once per frame
