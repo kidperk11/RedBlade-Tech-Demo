@@ -16,60 +16,79 @@ public class BodyRotationScript : MonoBehaviour
     {
         float cameraRotation = 0;
         float bodyRotation = 0;
-        
+
         cameraRotation = headCamera.transform.eulerAngles.y;
         bodyRotation = bodyObject.transform.eulerAngles.y;
 
 
         //Checks if the rotation is negative
-        if(cameraRotation < 0){
+        if (cameraRotation < 0)
+        {
             //adds 360 to the cameraRotation until it's value is greater than 0;
-            while(cameraRotation < 0){
+            while (cameraRotation < 0)
+            {
                 cameraRotation += 360;
             }
 
-        //Checks if the rotation is over 360
-        }else if(cameraRotation > 360){
+            //Checks if the rotation is over 360
+        }
+        else if (cameraRotation > 360)
+        {
             //subtracts 360 from the cameraRotation until it's value is less than 360;
-            while(cameraRotation > 360){
+            while (cameraRotation > 360)
+            {
                 cameraRotation -= 360;
             }
         }
 
         //Checks if the rotation is negative
-        if(bodyRotation < 0){
+        if (bodyRotation < 0)
+        {
             //adds 360 to the bodyRotation until it's value is greater than 0;
-            while(bodyRotation < 0){
+            while (bodyRotation < 0)
+            {
                 bodyRotation += 360;
             }
 
-        //Checks if the rotation is over 360
-        }else if(bodyRotation > 360){
+            //Checks if the rotation is over 360
+        }
+        else if (bodyRotation > 360)
+        {
             //subtracts 360 from the bodyRotation until it's value is less than 360;
-            while(bodyRotation > 360){
+            while (bodyRotation > 360)
+            {
                 bodyRotation -= 360;
             }
         }
-        if(cameraRotation > bodyRotation){
+        if (cameraRotation > bodyRotation)
+        {
             camBodyDistance = cameraRotation - bodyRotation;
-        }else if(cameraRotation<bodyRotation){
+        }
+        else if (cameraRotation < bodyRotation)
+        {
             camBodyDistance = bodyRotation - cameraRotation;
         }
         float highEnd = cameraRotation + rotationBuffer;
         float lowEnd = cameraRotation - rotationBuffer;
-        if(highEnd>360){
-            highEnd-=360;
+        if (highEnd > 360)
+        {
+            highEnd -= 360;
         }
-        if(lowEnd<0){
-            lowEnd+=360;
+        if (lowEnd < 0)
+        {
+            lowEnd += 360;
         }
         distanceToHighEnd = Mathf.Abs(Mathf.DeltaAngle(highEnd, bodyRotation));
         distanceToLowEnd = Mathf.Abs(Mathf.DeltaAngle(lowEnd, bodyRotation));
 
-        if(Mathf.Abs(Mathf.DeltaAngle(bodyRotation, cameraRotation)) > rotationBuffer){
-            if(distanceToHighEnd > distanceToLowEnd){
+        if (Mathf.Abs(Mathf.DeltaAngle(bodyRotation, cameraRotation)) > rotationBuffer)
+        {
+            if (distanceToHighEnd > distanceToLowEnd)
+            {
                 bodyObject.eulerAngles = new Vector3(this.transform.eulerAngles.x, lowEnd, this.transform.eulerAngles.z);
-            }else if(distanceToHighEnd < distanceToLowEnd){
+            }
+            else if (distanceToHighEnd < distanceToLowEnd)
+            {
                 bodyObject.eulerAngles = new Vector3(this.transform.eulerAngles.x, highEnd, this.transform.eulerAngles.z);
             }
         }
