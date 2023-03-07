@@ -71,11 +71,15 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, float postureDamage)
     {
-        if(shieldObjects.Count == 0)
+        if(shieldObjects.Count == 0 && !criticalParryOpening)
         {
             currentHealth -= damage;
+            if (postureBar != null)
+            {
+                currentPosture += postureDamage;
+            }
             if(hurtSound != null)
             {
                 hurtSound.Play();
@@ -93,6 +97,10 @@ public class EnemyHealth : MonoBehaviour
                 }
                 isDead = true;
             }
+            //if(postureDamage >= maxPosture)
+            //{
+            //    criticalParryOpening = true;
+            //}
         }
     }
 }

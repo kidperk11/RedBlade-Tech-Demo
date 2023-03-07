@@ -5,6 +5,7 @@ using UnityEngine;
 public class KatanaBasicAttack : MonoBehaviour
 {
     public int katanaDamage;
+    public float attackPostureDamage;
     public ChargeBlade chargeBlade;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class KatanaBasicAttack : MonoBehaviour
             if (chargeBlade.attackReady)
             {
                 EnemyHealth healthInstance = other.gameObject.GetComponentInParent<EnemyHealth>();
-                healthInstance.TakeDamage(katanaDamage);
+                healthInstance.TakeDamage(katanaDamage, attackPostureDamage);
                 chargeBlade.attackReady = false;
                 chargeBlade.timerForCharge = 0;
                 chargeBlade.bladeMaterial.color = chargeBlade.defaultColor;
